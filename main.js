@@ -8,3 +8,4 @@ htmlBody.appendChild(container);
 
 // 16 divs creation
 
+
