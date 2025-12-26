@@ -13,10 +13,22 @@ gridButton.addEventListener("click", (event) => {
    
     let gridSize = prompt("How large would you like you grid? Max size is 100");
     if (+gridSize && gridSize <=100){
+        // Selecting all rows and deleting 
+        const oldRows = document.querySelectorAll(".row");
+        oldRows.forEach(node =>{
+            node.remove();
+        });
+        //Create grid with size
         createGrid(gridSize);
 
     }else{
         alert("You gave an invalid input defualting to 16");
+        // Selecting all rows and deleting 
+        const oldRows = document.querySelectorAll(".row");
+        oldRows.forEach(node =>{
+            node.remove();
+        })
+        //Default grid
         createGrid();
     }
     
@@ -49,7 +61,7 @@ function createGrid(n = 16){
     }
 
 }
-
+createGrid();
 
 //Default 16x16 Grid
 
