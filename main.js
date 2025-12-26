@@ -32,7 +32,7 @@ function createGrid(n = 16){
     rowDiv.classList.add("row");
 
     rowDiv.addEventListener("mouseover",(event)=>{
-        event.target.style.backgroundColor = "blue";
+        event.target.style.backgroundColor = "#5C6F2B";
 
     });
     container.appendChild(rowDiv);

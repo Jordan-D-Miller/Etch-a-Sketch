@@ -1,4 +1,10 @@
+body{
+    color: #EEEEEE;
+}
+
+
 .container{
+    background-color: #D8C9A7;
     display: flex;
     flex-direction: column;
     justify-self: center;
@@ -31,6 +37,8 @@
     */
     align-items: center;
     padding: 2%;
+
+    color: #DE802B;
     
 
 }
