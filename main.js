@@ -2,39 +2,72 @@
 // HTML Body
 const htmlBody = document.querySelector("body"); 
 
-//Div container
+//Div container and reset button
 const container = document.querySelector(".container");
-htmlBody.appendChild(container);
+const titleButtons = document.createElement("div");
 
-//Button for user prompt
+
+htmlBody.appendChild(titleButtons);
+titleButtons.classList.add("bar");
+
+//reset button
+const resetButton = document.createElement("button");
+
+
+
+resetButton.classList.add("reset");
+resetButton.classList.add("Header");
+
+titleButtons.appendChild(resetButton);
+resetButton.textContent = "RESET"
+
+resetButton.addEventListener('click', () =>{
+    resetGrid();
+    createGrid();
+});
+
+
+
+//Title 
+const gameTitle = document.createElement("h1");
+htmlBody.appendChild(gameTitle);
+gameTitle.textContent = "Etch-a-Sketch!"
+gameTitle.classList.add("title");
+//gameTitle.classList.add("Header");
+
+
+
+
+
+
+
+//Editor Button
 const gridButton = document.createElement("button");
 gridButton.addEventListener("click", (event) => {
 
    
     let gridSize = prompt("How large would you like you grid? Max size is 100");
     if (+gridSize && gridSize <=100){
-        // Selecting all rows and deleting 
-        const oldRows = document.querySelectorAll(".row");
-        oldRows.forEach(node =>{
-            node.remove();
-        });
+        // Select all rows and delete
+         resetGrid();
         //Create grid with size
         createGrid(gridSize);
 
     }else{
         alert("You gave an invalid input defualting to 16");
         // Selecting all rows and deleting 
-        const oldRows = document.querySelectorAll(".row");
-        oldRows.forEach(node =>{
-            node.remove();
-        })
+         resetGrid();
         //Default grid
         createGrid();
     }
     
 });
 gridButton.textContent = "Grid Editor";
-container.appendChild(gridButton);
+gridButton.classList.add("Editor");
+titleButtons.appendChild(gridButton);
+
+// Etch a sketch Code
+htmlBody.appendChild(container);
 
 // Grid Creation 
 function createGrid(n = 16){
@@ -61,10 +94,17 @@ function createGrid(n = 16){
     }
 
 }
-createGrid();
+
+//Reset Grid
+function resetGrid(){
+    const oldRows = document.querySelectorAll(".row");
+        oldRows.forEach(node =>{
+            node.remove();
+        });
+}
 
 //Default 16x16 Grid
-
+createGrid();
 
 
 
