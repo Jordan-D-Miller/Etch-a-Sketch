@@ -79,7 +79,17 @@ function createGrid(n = 16){
        rowDiv.classList.add("row");
 
        rowDiv.addEventListener("mouseover",(event)=>{
-        event.target.style.backgroundColor = randomHexColor();
+
+
+        //Random and opacity checker 
+        if(event.target.classList.contains("touched")){
+            event.target.style.opacity -= .1;
+        }else{ // Adds opacity checks
+            event.target.classList.add("touched");
+            event.target.style.opacity = 1;
+            event.target.style.backgroundColor = randomHexColor();
+            
+        }
 
        });
        container.appendChild(rowDiv);
