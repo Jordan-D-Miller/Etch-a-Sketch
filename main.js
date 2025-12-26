@@ -79,7 +79,7 @@ function createGrid(n = 16){
        rowDiv.classList.add("row");
 
        rowDiv.addEventListener("mouseover",(event)=>{
-        event.target.style.backgroundColor = "#5C6F2B";
+        event.target.style.backgroundColor = randomHexColor();
 
        });
        container.appendChild(rowDiv);
@@ -105,6 +105,23 @@ function resetGrid(){
 
 //Default 16x16 Grid
 createGrid();
+
+//Random Hexcode 
+function randomHexColor(){
+    //color code
+    let letters ="0123456789ABCDEF";
+
+    //begins with
+    let color = "#";
+
+    // loops through letters at random 6 times
+    for(let i =0;i<6;i++){
+        color += letters[Math.floor((Math.random()*16))];
+    }
+    return color;
+
+}
+
 
 
 
